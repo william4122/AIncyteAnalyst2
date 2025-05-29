@@ -3,4 +3,4 @@ pandas
 jsonlines
 sentence-transformers
 chromadb
-ollamarun
+ollama
