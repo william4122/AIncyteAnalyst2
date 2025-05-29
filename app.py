@@ -22,12 +22,12 @@ def log_feedback(feedback_entry):
 # Define the telemetry types and keywords associated with them
 # This will be used by the router to identify the relevant telemetry
 TELEMETRY_TYPES = {
-    "connections": {
+    "connection": {
         "keywords": ["connection", "traffic", "ip", "port", "remoteaddr", "localaddr", "proto", "state", "threat"],
         "fields": ["remoteAddr", "localAddr", "remotePort", "localPort", "proto", "pid", "state", "eventTime", "ip_reputation"], # Add more as needed
         "default_analysis_fields": ["remoteAddr", "localAddr", "remotePort"] # Fields to analyze for common/unusual
     },
-    "processes": {
+    "process": {
         "keywords": ["process", "processes", "pid", "commandline", "executable", "user", "parentprocess"],
         "fields": [
             "pid", "ppid", "uid", "agent_id", "device_id", "hostid", "hostname",
@@ -74,7 +74,7 @@ TELEMETRY_TYPES = {
         ],
         "default_analysis_fields": ["pid", "process_name", "md5", "threatname"]
     },
-    "autostarts": {
+    "autostart": {
         "keywords": [
             "autostart", "startup", "registry", "autorun", "persistence",
             "service", "scheduledtask", "runkey", "logon", "startupfolder",
@@ -128,7 +128,7 @@ TELEMETRY_TYPES = {
         ],
         "default_analysis_fields": ["name", "path", "md5", "signed", "threatname", "compromised"]
     },
-    "scripts": {
+    "script": {
         "keywords": [
             "script", "powershell", "batch", "bash", "cmd", "shell", "execution",
             "payload", "code", "commandline", "automation", "malware"
@@ -145,7 +145,7 @@ TELEMETRY_TYPES = {
         ],
         "default_analysis_fields": ["name", "path", "pid", "commandline", "threatname", "compromised"]
     },
-    "accounts": {
+    "account": {
         "keywords": [
             "account", "user", "login", "logon", "privilege", "domain", "authentication",
             "credential", "session", "access", "logonserver"
@@ -159,6 +159,23 @@ TELEMETRY_TYPES = {
             "hostscan_id", "instance_id"
         ],
         "default_analysis_fields": ["uid", "name", "domain", "logontype", "logonserver"]
+    },
+    "artifact": {
+        "keywords": [
+            "artifact", "file", "payload", "dropped", "execution", "evidence",
+            "forensic", "autostart", "startup", "binary", "implant"
+        ],
+        "fields": [
+            "md5", "sha1", "sha256", "ssdeep",
+            "name", "path", "size", "signed", "signature",
+            "filecreated", "filemodified", "modifiedon", "created_on", "created_date", "event_time", "executedon",
+            "compromised", "threatname", "failed",
+            "flagname", "flagcolor", "flagweight",
+            "avratio", "avtotal", "avpositives",
+            "artifacttype",
+            "hostid", "hostname", "device_id", "agent_id"
+        ],
+        "default_analysis_fields": ["name", "path", "md5", "artifacttype", "event_time", "compromised"]
     }
 }
 
