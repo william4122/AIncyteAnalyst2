@@ -59,7 +59,7 @@ TELEMETRY_TYPES = {
         ],
         "default_analysis_fields": ["name", "vendor", "version"]
     },
-    "memory": {
+    "memscan": {
         "keywords": [
             "memory", "memorydump", "process", "pid", "handle", "module", "dll", "injection",
             "hook", "runtime", "artifact", "volatile", "heap", "stack", "malware", "code",
@@ -93,7 +93,7 @@ TELEMETRY_TYPES = {
         ],
         "default_analysis_fields": ["name", "regpath", "autostarttype", "path", "threatname", "compromised"]
     },
-    "drivers": {
+    "driver": {
         "keywords": [
             "driver", "sysfile", "kernel", "device", "module", "signed", "unsigned",
             "driverload", "drivermodule", "rootkit", "kernelmode", "hook", "malware"
